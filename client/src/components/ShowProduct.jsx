@@ -69,73 +69,70 @@ function ShowProduct() {
   return (
     <div>
       <Navbar />
-      <div className="container">
-        <div className="d-flex justify-content-between my-5">
-          <h1>Product Details</h1>
+      <div className="container bg-dark text-light">
+        <div className="text-center">
+          <h3 style={{padding:"3rem 0"}}>Product Details</h3>
         </div>
         <div className="row align-items-center shadow">
-          <div className="col-md-4">
+          <div className="col-md-6">
             <img
               src={productImage}
               alt="productImage"
-              style={{ height: "20rem", width: "20rem" }}
+              style={{height:"100%", width:"100%", objectFit: "cover" }}
+              
             />
           </div>
-          <div className="col-md-8">
-            <h3 style={{ fontWeight: "700" }} className="my-3">
-              {productName}
-            </h3>
+          <div className="col-md-6">
+            <h4 style={{ fontWeight: "700" }} className="my-3">
+              {productName} - {productId}
+            </h4>
             <div className="d-flex my-3">
-              <h5 style={{ fontWeight: "700" }}>Product ID : </h5>
-              <h5 className="mx-2">{productId}</h5>
+              <h6 style={{ fontWeight: "700" }}>Brand : </h6>
+              <p className="mx-2">{productBrand}</p>
             </div>
             <div className="d-flex my-3">
-              <h5 style={{ fontWeight: "700" }}>Brand : </h5>
-              <h5 className="mx-2">{productBrand}</h5>
+              <h6 style={{ fontWeight: "700" }}>Name : </h6>
+              <p className="mx-2">{productName}</p>
             </div>
             <div className="d-flex my-3">
-              <h5 style={{ fontWeight: "700" }}>Product Name : </h5>
-              <h5 className="mx-2">{productName}</h5>
+              <h6 style={{ fontWeight: "700" }}>Category : </h6>
+              <p className="mx-2">{productCategory}</p>
             </div>
             <div className="d-flex my-3">
-              <h5 style={{ fontWeight: "700" }}>Product Category : </h5>
-              <h5 className="mx-2">{productCategory}</h5>
+              <h6 style={{ fontWeight: "700" }}>Sub Category : </h6>
+              <p className="mx-2">{productSubCategory}</p>
             </div>
             <div className="d-flex my-3">
-              <h5 style={{ fontWeight: "700" }}>Product Sub Category : </h5>
-              <h5 className="mx-2">{productSubCategory}</h5>
+              <h6 style={{ fontWeight: "700" }}>Quantity : </h6>
+              <p className="mx-2">{productQuantity}</p>
             </div>
             <div className="d-flex my-3">
-              <h5 style={{ fontWeight: "700" }}>Product Quantity : </h5>
-              <h5 className="mx-2">{productQuantity}</h5>
+              <h6 style={{ fontWeight: "700" }}>Minimum Quantity :</h6>
+              <p className="mx-2">{productMinQuantity}</p>
             </div>
             <div className="d-flex my-3">
-              <h5 style={{ fontWeight: "700" }}>Product Minimum Quantity :</h5>
-              <h5 className="mx-2">{productMinQuantity}</h5>
+              <h6 style={{ fontWeight: "700" }}>Maximum Quantity :</h6>
+              <p className="mx-2">{productMaxQuantity}</p>
             </div>
             <div className="d-flex my-3">
-              <h5 style={{ fontWeight: "700" }}>Product Maximum Quantity :</h5>
-              <h5 className="mx-2">{productMaxQuantity}</h5>
+              <h6 style={{ fontWeight: "700" }}>Colour :</h6>
+              <p className="mx-2">{productColour}</p>
             </div>
             <div className="d-flex my-3">
-              <h5 style={{ fontWeight: "700" }}>Product Colour :</h5>
-              <h5 className="mx-2">{productColour}</h5>
+              <h6 style={{ fontWeight: "700" }}>Size :</h6>
+              <p className="mx-2">{productSize}</p>
             </div>
             <div className="d-flex my-3">
-              <h5 style={{ fontWeight: "700" }}>Product Size :</h5>
-              <h5 className="mx-2">{productSize}</h5>
+              <h6 style={{ fontWeight: "700" }}>Price : </h6>
+              <p className="mx-2">{productPrice}</p>
             </div>
             <div className="d-flex my-3">
-              <h5 style={{ fontWeight: "700" }}>Product Price : </h5>
-              <h5 className="mx-2">{productPrice}</h5>
+              <h6 style={{ fontWeight: "700" }}>Admin ID : </h6>
+              <p className="mx-2">{productAdminId}</p>
             </div>
-            <div className="d-flex my-3">
-              <h5 style={{ fontWeight: "700" }}>Product Admin ID : </h5>
-              <h5 className="mx-2">{productAdminId}</h5>
-            </div>
-            <div className="d-flex my-3">
-              <h5 style={{ fontWeight: "700" }}>Product Description : </h5>
-              <h5 className="mx-2">{productDescription}</h5>
+            <div className="d-block my-3">
+              <h6 style={{ fontWeight: "700" }}>Description : </h6>
+              <p className="mx-2">{productDescription}</p>
             </div>
             <div className="d-flex my-3">
               <Link to={`/UpdateProducts/${productId}`}>
