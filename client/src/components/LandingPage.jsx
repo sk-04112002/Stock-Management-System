@@ -169,6 +169,7 @@ function LandingPage() {
         >
           All Products
         </div>
+        <div className="d-none d-lg-block">
         <form
           className="d-flex"
           role="search"
@@ -196,76 +197,58 @@ function LandingPage() {
             <option value="subcategory">Sub Category</option>
           </select>
         </form>
+        </div>
       </div>
       <div className="container">
         <div className="row">
-          <div className="col-lg-10 table-responsive">
-            <table className="table">
-              <thead>
-                <tr>
-                  <th scope="col">Product Image</th>
-                  <th scope="col">Product Brand</th>
-                  <th scope="col">Product Name</th>
-                  <th scope="col">Category</th>
-                  <th scope="col">Sub Category</th>
-                  <th scope="col">Quantity</th>
-                  <th scope="col">Price</th>
-                  <th scope="col">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
+        <div className="col-lg-10 col-md-12 d-flex flex-wrap justify-content-md-center justify-content-lg-start justify-content-sm-center justify-content-xs-center">
+
+            
                 {filteredProductData.map((product, index) => {
                   return (
-                    <tr key={index}>
-                      <td>
-                        <img
-                          src={product.productImage}
-                          alt="Product Image"
-                          style={{
-                            height: "80px",
-                            width: "80px",
-                            objectFit: "cover",
-                            borderRadius: "10px",
-                          }}
-                        />
-                      </td>
-                      <td>{product.productBrand}</td>
-                      <td>{product.productName}</td>
-                      <td>{product.productCategory}</td>
-                      <td>{product.productSubCategory}</td>
-                      <td>{product.productQuantity}</td>
-                      <td>{product.productPrice}</td>
-                      <td>
-                        <Link to={`/UpdateProducts/${product._id}`}>
-                          <img
-                            src={update}
-                            alt="update"
-                            className="px-3"
-                            style={{ height: "20px" }}
-                          />
-                        </Link>
-                        <img
-                          src={deleteicon}
-                          alt="delete"
-                          style={{ height: "20px", cursor: "pointer" }}
-                          onClick={(e) => handleDelete(product._id)}
-                        />
-                        <Link to={`/ShowProduct/${product._id}`}>
-                          <img
-                            src={eye}
-                            alt="show"
-                            className="px-3"
-                            style={{ height: "20px" }}
-                          />
-                        </Link>
-                      </td>
-                    </tr>
+
+                    <div
+  className="card mx-3 my-2 w-100 d-flex flex-column"
+  style={{ maxWidth: "18rem" }} // Removed fixed height
+  key={product._id}
+>
+  <img
+    src={product.productImage}
+    className="card-img-top"
+    alt="Product Image"
+    style={{
+      height: "12rem", // Keeps image uniform
+      width: "100%",
+      objectFit: "cover",
+    }}
+  />
+  <div className="card-body d-flex flex-column justify-content-between">
+    <h5 className="card-title">{product.productName}</h5>
+    {product.productPrice && (
+      <p className="mt-3" style={{ fontWeight: "400" }}>
+        MRP ₹{Number(product.productPrice).toLocaleString("en-IN")}
+      </p>
+    )}
+    <div className="mt-auto d-flex justify-content-between">
+      <Link to={`/ShowProduct/${product._id}`}>
+        <div className="btn btn-primary">Show Product</div>
+      </Link>
+      <div
+        className="btn btn-danger"
+        onClick={() => handleDelete(product._id)}
+      >
+        Delete
+      </div>
+    </div>
+  </div>
+</div>
+
+                    
                   );
                 })}
-              </tbody>
-            </table>
+              
           </div>
-          <div className="col-lg-2">
+          <div className="d-none d-lg-inline col-lg-1">
             <h6>Filters :</h6>
             <form onSubmit={(e) => e.preventDefault()}>
               <label htmlFor="category">Category :</label>
